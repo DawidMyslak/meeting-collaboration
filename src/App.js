@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+
 import TodoWidget from './widgets/TodoWidget'
 import NoteWidget from './widgets/NoteWidget'
 import PollWidget from './widgets/PollWidget'
 import TaskWidget from './widgets/TaskWidget'
+import ResourceWidget from './widgets/ResourceWidget'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -111,17 +114,17 @@ class App extends Component {
         },
         {
           id: 6,
-          title: 'Finished estimates',
-          type: 'TaskWidget',
+          title: 'Sharing resources',
+          type: 'ResourceWidget',
           data: {
-            task: 'Bulding meeting minutes taker app',
-            results: true,
-            estimates: [3, 5, 8]
+            name: 'Check this great website!',
+            link: 'https://www.teamwork.com/'
           }
         }
       ]
     };
   }
+
   render() {
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
@@ -133,6 +136,8 @@ class App extends Component {
           return <PollWidget key={widget.id} widget={widget} />;
         case 'TaskWidget':
           return <TaskWidget key={widget.id} widget={widget} />;
+        case 'ResourceWidget':
+          return <ResourceWidget key={widget.id} widget={widget} />;
         default:
           return '';
       }
