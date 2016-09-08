@@ -16,9 +16,34 @@ body {
   clear: both;
 }
 
+.col-100 {
+  width: 100%;
+  float: left;
+}
+
 .col-50 {
   width: 50%;
   float: left;
+}
+
+.color-1 {
+  background-color: #abe98a;
+}
+
+.color-2 {
+  background-color: #7fdbd8;
+}
+
+.color-3 {
+  background-color: #e2e687;
+}
+
+.color-4 {
+  background-color: #e6828e;
+}
+
+.color-5 {
+  background-color: #dba9f0;
 }
 
 .Widget {

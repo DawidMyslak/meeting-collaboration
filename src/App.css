@@ -2,7 +2,7 @@
   font-size: 14px;
 }
 
-.App-header {
+.App-meeting {
   background-color: #30445c;
   height: 80px;
   color: #fff;
@@ -17,6 +17,7 @@
 }
 
 .App-meeting-title h3 {
+  color: #ccc;
   font-weight: 100;
   margin: 5px 0 0 0;
 }
@@ -31,6 +32,31 @@
 }
 
 .App-meeting-info h4 {
+  color: #ccc;
   font-weight: 100;
   margin: 5px 0 0 0;
+}
+
+.App-users {
+  background-color: #3c5573;
+  height: 60px;
+}
+
+.App-users-list {
+  padding: 0 20px;
+}
+
+.App-users-user {
+  color: #444;
+  padding-top: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-top: 15px;
+  margin-right: 10px;
+  float: left;
 }

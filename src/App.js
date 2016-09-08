@@ -24,12 +24,24 @@ class App extends Component {
       },
       people: [
         {
-          name: 'John',
-          avatar: ''
+          id: 1,
+          name: 'John'
         },
         {
-          name: 'Paul',
-          avatar: ''
+          id: 2,
+          name: 'Paul'
+        },
+        {
+          id: 3,
+          name: 'Ringo'
+        },
+        {
+          id: 4,
+          name: 'George'
+        },
+        {
+          id: 5,
+          name: 'Yoko'
         }
       ],
       timeline: [
@@ -191,9 +203,14 @@ class App extends Component {
       }
     });
 
+    let users = this.state.people.map(person => {
+      let style = ('App-users-user color-').concat(person.id);
+      return <div key={person.id} className={style}>{person.id}</div>;
+    });
+
     return (
       <div className="App">
-        <div className="App-header container">
+        <div className="App-meeting container">
           <div className="App-meeting-title col-50">
             <h2>Meeting collaboration</h2>
             <h3><i className="fa fa-list"></i> {this.state.meeting.title}</h3>
@@ -201,6 +218,11 @@ class App extends Component {
           <div className="App-meeting-info col-50">
             <h3><i className="fa fa-calendar"></i> {this.state.meeting.date}, {this.state.meeting.time}</h3>
             <h4><i className="fa fa-map-marker"></i> {this.state.meeting.room}</h4>
+          </div>
+        </div>
+        <div className="App-users container">
+          <div className="App-users-list col-100">
+            {users}
           </div>
         </div>
         <div>
