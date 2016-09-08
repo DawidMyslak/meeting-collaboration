@@ -1,64 +1,8 @@
 import React, { Component } from 'react';
-import marked from 'marked';
+import TodoWidget from './widgets/TodoWidget'
+import NoteWidget from './widgets/NoteWidget'
 import logo from './logo.svg';
 import './App.css';
-
-class MarkdownElement extends Component {
-  constructor(props) {
-    super(props);
-
-    marked.setOptions({
-      gfm: true,
-      tables: true,
-      breaks: false,
-      pedantic: false,
-      sanitize: true,
-      smartLists: true,
-      smartypants: false
-    });
-  }
-  render() {
-    const { text } = this.props,
-      html = marked(text || '');
-
-    return (<div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>);
-  }
-}
-
-const TodoWidget = ({widget}) => {
-  let todos = widget.data.todos.map(todo => {
-    return (<li
-      key={todo.id}
-      style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-      >
-      {todo.text}
-    </li>);
-  });
-
-  return (
-    <div className="Widget">
-      <h1>{widget.title}</h1>
-      <p>ID: {widget.id}</p>
-      <p>Type: {widget.type}</p>
-      <ul>
-        {todos}
-      </ul>
-    </div>
-  );
-};
-
-const NoteWidget = ({widget}) => {
-  return (
-    <div className="Widget">
-      <h1>{widget.title}</h1>
-      <p>ID: {widget.id}</p>
-      <p>Type: {widget.type}</p>
-      <MarkdownElement text={widget.data.text} />
-    </div>
-  );
-};
 
 class App extends Component {
   constructor() {
