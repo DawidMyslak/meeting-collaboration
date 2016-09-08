@@ -1,5 +1,26 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.col-50 {
+  width: 50%;
+  float: left;
+}
+
+.Widget {
+  border-bottom: 1px solid #ddd;
 }

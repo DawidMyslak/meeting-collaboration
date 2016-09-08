@@ -193,8 +193,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Meeting</h2>
+        <div className="App-header container">
+          <div className="App-meeting-title col-50">
+            <h2>Meeting collaboration</h2>
+            <h3><i className="fa fa-list"></i> {this.state.meeting.title}</h3>
+          </div>
+          <div className="App-meeting-info col-50">
+            <h3><i className="fa fa-calendar"></i> {this.state.meeting.date}, {this.state.meeting.time}</h3>
+            <h4><i className="fa fa-map-marker"></i> {this.state.meeting.room}</h4>
+          </div>
         </div>
         <div>
           {timeline}

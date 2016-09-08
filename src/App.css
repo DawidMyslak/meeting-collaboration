@@ -3,12 +3,34 @@
 }
 
 .App-header {
-  text-align: center;
-  background-color: #222;
-  padding: 20px;
-  color: white;
+  background-color: #30445c;
+  height: 80px;
+  color: #fff;
 }
 
-.Widget {
-  border-bottom: 1px solid #ddd;
+.App-meeting-title {
+  padding: 0 20px;
+}
+
+.App-meeting-title h2 {
+  margin: 15px 0 0 0;
+}
+
+.App-meeting-title h3 {
+  font-weight: 100;
+  margin: 5px 0 0 0;
+}
+
+.App-meeting-info {
+  text-align: right;
+  padding: 0 20px;
+}
+
+.App-meeting-info h3 {
+  margin: 20px 0 0 0;
+}
+
+.App-meeting-info h4 {
+  font-weight: 100;
+  margin: 5px 0 0 0;
 }
