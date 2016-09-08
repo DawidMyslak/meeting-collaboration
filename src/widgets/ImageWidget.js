@@ -5,8 +5,8 @@ const ImageWidget = ({widget}) => {
     <div className="Widget">
       <p>ID: {widget.id}</p>
       <p>Type: {widget.type}</p>
-      <a href={widget.data.source} rel="noopener noreferrer" target="_blank">
-        <img src={widget.data.source} alt="" />
+      <a href={widget.data.image} rel="noopener noreferrer" target="_blank">
+        <img src={widget.data.image} alt="" />
       </a>
     </div>
   );

@@ -7,7 +7,7 @@ const TodoWidget = ({widget}) => {
       style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
       // onClick={onClick}
       >
-      {todo.text} [click]
+      {todo.todo} [click]
     </li>);
   });
 

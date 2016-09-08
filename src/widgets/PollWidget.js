@@ -1,18 +1,18 @@
 import React from 'react';
 
 const PollWidget = ({widget}) => {
-  let options = widget.data.options.map(option => {
+  let answers = widget.data.answers.map(answer => {
     if (!widget.data.results) {
       return (<li
-        key={option.id}
+        key={answer.id}
         // onClick={onClick}
         >
-        {option.text} [click]
+        {answer.answer} [click]
       </li>);
     }
     else {
-      return (<li key={option.id}>
-        {option.text} ({option.votes})
+      return (<li key={answer.id}>
+        {answer.answer} ({answer.votes})
       </li>);
     }
   });
@@ -31,7 +31,7 @@ const PollWidget = ({widget}) => {
       <p>Type: {widget.type}</p>
       <p>{widget.data.question}</p>
       <ul>
-        {options}
+        {answers}
       </ul>
       {results}
     </div>

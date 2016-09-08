@@ -2,7 +2,7 @@ import React from 'react';
 import marked from 'marked';
 
 const NoteWidget = ({widget}) => {
-  let html = marked(widget.data.text || '');
+  let html = marked(widget.data.note || '');
 
   return (
     <div className="Widget">

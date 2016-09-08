@@ -16,6 +16,22 @@ class App extends Component {
     super();
 
     this.state = {
+      meeting: {
+        title: 'Sprint review',
+        room: 'Games Room',
+        date: '9th September 2016',
+        time: '10:00'
+      },
+      people: [
+        {
+          name: 'John',
+          avatar: ''
+        },
+        {
+          name: 'Paul',
+          avatar: ''
+        }
+      ],
       timeline: [
         {
           id: 1,
@@ -24,17 +40,17 @@ class App extends Component {
             todos: [
               {
                 id: 1,
-                text: 'Sprint retro',
+                todo: 'Sprint retro',
                 completed: true
               },
               {
                 id: 2,
-                text: 'Brainstorm',
+                todo: 'Brainstorm',
                 completed: false
               },
               {
                 id: 3,
-                text: 'Sprint planning',
+                todo: 'Sprint planning',
                 completed: false
               }
             ]
@@ -44,7 +60,7 @@ class App extends Component {
           id: 2,
           type: 'NoteWidget',
           data: {
-            text: '~~markdown~~ _is_ **awesome**\n' +
+            note: '~~markdown~~ _is_ **awesome**\n' +
             '* one\n' +
             '* two\n' +
             '* three\n'
@@ -56,20 +72,20 @@ class App extends Component {
           data: {
             question: 'Best player in the world?',
             results: false,
-            options: [
+            answers: [
               {
                 id: 1,
-                text: 'Leo',
+                answer: 'Leo',
                 votes: 2
               },
               {
                 id: 2,
-                text: 'Cris',
+                answer: 'Cris',
                 votes: 4
               },
               {
                 id: 3,
-                text: 'Robert',
+                answer: 'Robert',
                 votes: 1
               }
             ]
@@ -81,20 +97,20 @@ class App extends Component {
           data: {
             question: 'Best player in the world?',
             results: true,
-            options: [
+            answers: [
               {
                 id: 1,
-                text: 'Leo',
+                answer: 'Leo',
                 votes: 2
               },
               {
                 id: 2,
-                text: 'Cris',
+                answer: 'Cris',
                 votes: 4
               },
               {
                 id: 3,
-                text: 'Robert',
+                answer: 'Robert',
                 votes: 1
               }
             ]
@@ -122,7 +138,7 @@ class App extends Component {
           id: 7,
           type: 'ResourceWidget',
           data: {
-            name: 'Check this great website!',
+            description: 'Check this great website!',
             link: 'https://www.teamwork.com'
           }
         },
@@ -130,7 +146,7 @@ class App extends Component {
           id: 8,
           type: 'ImageWidget',
           data: {
-            source: 'https://www.teamwork.com/images/favicon-large.png'
+            image: 'https://www.teamwork.com/images/favicon-large.png'
           }
         },
         {
