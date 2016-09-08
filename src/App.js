@@ -8,6 +8,7 @@ import TaskWidget from './widgets/TaskWidget'
 import ResourceWidget from './widgets/ResourceWidget'
 import ImageWidget from './widgets/ImageWidget'
 import WhiteboardWidget from './widgets/WhiteboardWidget'
+import EmptyWidget from './widgets/EmptyWidget'
 
 import './App.css';
 
@@ -182,27 +183,91 @@ class App extends Component {
   render() {
     let users = this.state.people.map(person => {
       let style = ('App-users-user color-').concat(person.id);
-      return <div key={person.id} className={style}>{person.id}</div>;
+      return <div key={person.id} className={style}><i className="fa fa-user"></i></div>;
     });
 
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
         case 'HeaderWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><HeaderWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-header"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <HeaderWidget widget={widget} />
+              </div>
+            </div>);
         case 'TodoWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><TodoWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-check"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <TodoWidget widget={widget} />
+              </div>
+            </div>);
         case 'NoteWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><NoteWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-comment"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <NoteWidget widget={widget} />
+              </div>
+            </div>);
         case 'PollWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><PollWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-question"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <PollWidget widget={widget} />
+              </div>
+            </div>);
         case 'TaskWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><TaskWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-clock-o"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <TaskWidget widget={widget} />
+              </div>
+            </div>);
         case 'ResourceWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><ResourceWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-link"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <ResourceWidget widget={widget} />
+              </div>
+            </div>);
         case 'ImageWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><ImageWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-picture-o"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <ImageWidget widget={widget} />
+              </div>
+            </div>);
         case 'WhiteboardWidget':
-          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><WhiteboardWidget key={widget.id} widget={widget} /></div></div>);
+          return (
+            <div key={widget.id}>
+              <div className="col-10">
+                <div className="App-widget-checkpoint"><i className="fa fa-pencil"></i></div>
+              </div>
+              <div className="App-widget col-90">
+                <WhiteboardWidget widget={widget} />
+              </div>
+            </div>);
         default:
           return '';
       }
@@ -213,7 +278,7 @@ class App extends Component {
         <div className="App-navbar container">
           <div className="App-meeting-title col-50">
             <h2>Meeting collaboration</h2>
-            <h3><i className="fa fa-list"></i> {this.state.meeting.title}</h3>
+            <h3><i className="fa fa-users"></i> {this.state.meeting.title}</h3>
           </div>
           <div className="App-meeting-info col-50">
             <h3><i className="fa fa-calendar"></i> {this.state.meeting.date}, {this.state.meeting.time}</h3>
@@ -238,6 +303,14 @@ class App extends Component {
           </div>
         </div>
         <div className="App-timeline container">
+          <div className="App-timeline-begin">
+            <div className="col-10">
+              <div className="App-widget-begin"></div>
+            </div>
+            <div className="App-widget col-90">
+              <EmptyWidget />
+            </div>
+          </div>
           {timeline}
         </div>
       </div>
