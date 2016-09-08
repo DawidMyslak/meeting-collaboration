@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './../Widget.css';
+
 const PollWidget = ({widget}) => {
   let answers = widget.data.answers.map(answer => {
     if (!widget.data.results) {

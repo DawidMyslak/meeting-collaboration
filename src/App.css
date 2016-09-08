@@ -2,10 +2,14 @@
   font-size: 14px;
 }
 
-.App-meeting {
+.App-navbar {
   background-color: #30445c;
   height: 80px;
   color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .App-meeting-title {
@@ -37,16 +41,55 @@
   margin: 5px 0 0 0;
 }
 
-.App-users {
+.App-utils {
   background-color: #3c5573;
   height: 60px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 10;
 }
 
-.App-users-list {
+.App-widgets {
+  padding: 0 20px;
+}
+
+.App-widgets ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #3c5573;
+}
+
+.App-widgets li {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.App-widgets li a {
+  display: block;
+  margin-right: 5px;
+  font-size: 1.2em;
+  color: #fff;
+  text-align: center;
+  padding-top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.App-widgets li a:hover {
+  background-color: #242e3a;
+}
+
+.App-users {
+  text-align: right;
   padding: 0 20px;
 }
 
 .App-users-user {
+  display: inline-block;
   color: #444;
   padding-top: 5px;
   font-weight: bold;
@@ -57,6 +100,9 @@
   height: 30px;
   border-radius: 15px;
   margin-top: 15px;
-  margin-right: 10px;
-  float: left;
+  margin-left: 10px;
+}
+
+.App-timeline {
+  margin-top: 140px;
 }

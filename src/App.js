@@ -180,6 +180,11 @@ class App extends Component {
   }
 
   render() {
+    let users = this.state.people.map(person => {
+      let style = ('App-users-user color-').concat(person.id);
+      return <div key={person.id} className={style}>{person.id}</div>;
+    });
+
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
         case 'HeaderWidget':
@@ -203,14 +208,9 @@ class App extends Component {
       }
     });
 
-    let users = this.state.people.map(person => {
-      let style = ('App-users-user color-').concat(person.id);
-      return <div key={person.id} className={style}>{person.id}</div>;
-    });
-
     return (
       <div className="App">
-        <div className="App-meeting container">
+        <div className="App-navbar container">
           <div className="App-meeting-title col-50">
             <h2>Meeting collaboration</h2>
             <h3><i className="fa fa-list"></i> {this.state.meeting.title}</h3>
@@ -220,13 +220,30 @@ class App extends Component {
             <h4><i className="fa fa-map-marker"></i> {this.state.meeting.room}</h4>
           </div>
         </div>
-        <div className="App-users container">
-          <div className="App-users-list col-100">
+        <div className="App-utils container">
+          <div className="App-widgets col-50">
+            <ul>
+              <li><a href="#"><i className="fa fa-header"></i></a></li>
+              <li><a href="#"><i className="fa fa-check"></i></a></li>
+              <li><a href="#"><i className="fa fa-comment"></i></a></li>
+              <li><a href="#"><i className="fa fa-question"></i></a></li>
+              <li><a href="#"><i className="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i className="fa fa-link"></i></a></li>
+              <li><a href="#"><i className="fa fa-picture-o"></i></a></li>
+              <li><a href="#"><i className="fa fa-pencil"></i></a></li>
+            </ul>
+          </div>
+          <div className="App-users col-50">
             {users}
           </div>
         </div>
-        <div>
-          {timeline}
+        <div className="App-timeline container">
+          <div className="col-20">
+          x
+          </div>
+          <div className="col-80">
+            {timeline}
+          </div>
         </div>
       </div>
     );

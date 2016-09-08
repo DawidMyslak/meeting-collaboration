@@ -10,19 +10,28 @@ body {
   font-family: sans-serif;
 }
 
+.container {
+  width: 100%;
+}
+
 .container::after {
   content: "";
   display: block;
   clear: both;
 }
 
-.col-100 {
-  width: 100%;
+.col-50 {
+  width: 50%;
   float: left;
 }
 
-.col-50 {
-  width: 50%;
+.col-20 {
+  width: 20%;
+  float: left;
+}
+
+.col-80 {
+  width: 80%;
   float: left;
 }
 
@@ -44,8 +53,4 @@ body {
 
 .color-5 {
   background-color: #dba9f0;
-}
-
-.Widget {
-  border-bottom: 1px solid #ddd;
 }

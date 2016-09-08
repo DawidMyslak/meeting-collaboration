@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './../Widget.css';
+
 const TaskWidget = ({widget}) => {
   let options = [0, 1, 2, 3, 5, 8, 20, 40];
   options = options.map(option => {

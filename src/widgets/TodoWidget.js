@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './../Widget.css';
+
 const TodoWidget = ({widget}) => {
   let todos = widget.data.todos.map(todo => {
     return (<li

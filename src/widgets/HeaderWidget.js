@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './../Widget.css';
+
 const HeaderWidget = ({widget}) => {
   return (
     <div className="Widget">

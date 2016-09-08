@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './../Widget.css';
+
 const ImageWidget = ({widget}) => {
   return (
     <div className="Widget">
