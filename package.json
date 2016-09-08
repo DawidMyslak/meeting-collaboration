@@ -6,10 +6,12 @@
     "react-scripts": "0.4.1"
   },
   "dependencies": {
-    "font-awesome": "^4.6.3",
-    "marked": "^0.3.6",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "font-awesome": "^4.6.3",
+    "marked": "^0.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
