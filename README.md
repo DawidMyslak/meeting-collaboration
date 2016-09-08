@@ -1,2 +1,2 @@
 # Meeting collaboration
-Meeting collaboration tool
+Meeting collaboration tool created with React and Redux.
