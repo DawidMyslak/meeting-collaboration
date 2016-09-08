@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoWidget from './widgets/TodoWidget'
 import NoteWidget from './widgets/NoteWidget'
+import PollWidget from './widgets/PollWidget'
 import logo from './logo.svg';
 import './App.css';
 
@@ -44,6 +45,58 @@ class App extends Component {
             '* two\n' +
             '* three\n'
           }
+        },
+        {
+          id: 3,
+          title: 'Voting time!',
+          type: 'PollWidget',
+          data: {
+            question: 'Best player in the world?',
+            finished: false,
+            options: [
+              {
+                id: 1,
+                text: 'Leo',
+                votes: 2
+              },
+              {
+                id: 2,
+                text: 'Cris',
+                votes: 4
+              },
+              {
+                id: 3,
+                text: 'Robert',
+                votes: 1
+              }
+            ]
+          }
+        },
+        {
+          id: 4,
+          title: 'Voting is finished!',
+          type: 'PollWidget',
+          data: {
+            question: 'Best player in the world?',
+            finished: true,
+            options: [
+              {
+                id: 1,
+                text: 'Leo',
+                votes: 2
+              },
+              {
+                id: 2,
+                text: 'Cris',
+                votes: 4
+              },
+              {
+                id: 3,
+                text: 'Robert',
+                votes: 1
+              }
+            ]
+          }
         }
       ]
     };
@@ -55,6 +108,8 @@ class App extends Component {
           return <TodoWidget key={widget.id} widget={widget} />;
         case 'NoteWidget':
           return <NoteWidget key={widget.id} widget={widget} />;
+        case 'PollWidget':
+          return <PollWidget key={widget.id} widget={widget} />;
         default:
           return '';
       }
