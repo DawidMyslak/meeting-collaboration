@@ -4,12 +4,12 @@ import './App.css';
 
 const TodoWidget = ({widget}) => {
   let todos = widget.data.todos.map(todo => {
-    return <li
+    return (<li
       key={todo.id}
       style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
       >
       {todo.text}
-    </li>
+    </li>);
   });
 
   return (
@@ -30,6 +30,7 @@ const NoteWidget = ({widget}) => {
       <h1>{widget.title}</h1>
       <p>ID: {widget.id}</p>
       <p>Type: {widget.type}</p>
+      <p>{widget.data.text}</p>
     </div>
   );
 };
@@ -37,6 +38,7 @@ const NoteWidget = ({widget}) => {
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       timeline: [
         {
@@ -52,7 +54,12 @@ class App extends Component {
               },
               {
                 id: 2,
-                text: 'Sprint retro',
+                text: 'Brainstorm',
+                completed: false
+              },
+              {
+                id: 3,
+                text: 'Sprint planning',
                 completed: false
               }
             ]
@@ -63,6 +70,7 @@ class App extends Component {
           title: 'Title2',
           type: 'NoteWidget',
           data: {
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
           }
         }
       ]
