@@ -5,8 +5,9 @@ const TodoWidget = ({widget}) => {
     return (<li
       key={todo.id}
       style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+      // onClick={onClick}
       >
-      {todo.text}
+      {todo.text} [click]
     </li>);
   });
 

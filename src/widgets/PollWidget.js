@@ -2,11 +2,12 @@ import React from 'react';
 
 const PollWidget = ({widget}) => {
   let options = widget.data.options.map(option => {
-    if (!widget.data.finished) {
-      return (<li key={option.id}>
-        <button>
-          {option.text}
-        </button>
+    if (!widget.data.results) {
+      return (<li
+        key={option.id}
+        // onClick={onClick}
+        >
+        {option.text} [click]
       </li>);
     }
     else {
@@ -16,9 +17,12 @@ const PollWidget = ({widget}) => {
     }
   });
 
-  let finish;
-  if (!widget.data.finished) {
-    finish = <p><button>Finish</button></p>
+  let results;
+  if (!widget.data.results) {
+    results = <p><button>Show results</button></p>;
+  }
+  else {
+    results = <p><button>Hide results</button></p>;
   }
 
   return (
@@ -30,7 +34,7 @@ const PollWidget = ({widget}) => {
       <ul>
         {options}
       </ul>
-      {finish}
+      {results}
     </div>
   );
 };

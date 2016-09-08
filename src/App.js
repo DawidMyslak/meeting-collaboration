@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TodoWidget from './widgets/TodoWidget'
 import NoteWidget from './widgets/NoteWidget'
 import PollWidget from './widgets/PollWidget'
+import TaskWidget from './widgets/TaskWidget'
 import logo from './logo.svg';
 import './App.css';
 
@@ -52,7 +53,7 @@ class App extends Component {
           type: 'PollWidget',
           data: {
             question: 'Best player in the world?',
-            finished: false,
+            results: false,
             options: [
               {
                 id: 1,
@@ -78,7 +79,7 @@ class App extends Component {
           type: 'PollWidget',
           data: {
             question: 'Best player in the world?',
-            finished: true,
+            results: true,
             options: [
               {
                 id: 1,
@@ -97,6 +98,26 @@ class App extends Component {
               }
             ]
           }
+        },
+        {
+          id: 5,
+          title: 'Doing something new and cool :-)',
+          type: 'TaskWidget',
+          data: {
+            task: 'Bulding meeting minutes taker app',
+            results: false,
+            estimates: [3, 5, 8]
+          }
+        },
+        {
+          id: 6,
+          title: 'Finished estimates',
+          type: 'TaskWidget',
+          data: {
+            task: 'Bulding meeting minutes taker app',
+            results: true,
+            estimates: [3, 5, 8]
+          }
         }
       ]
     };
@@ -110,6 +131,8 @@ class App extends Component {
           return <NoteWidget key={widget.id} widget={widget} />;
         case 'PollWidget':
           return <PollWidget key={widget.id} widget={widget} />;
+        case 'TaskWidget':
+          return <TaskWidget key={widget.id} widget={widget} />;
         default:
           return '';
       }
