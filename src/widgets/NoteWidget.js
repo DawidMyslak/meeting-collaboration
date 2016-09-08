@@ -8,8 +8,6 @@ const NoteWidget = ({widget}) => {
 
   return (
     <div className="Widget">
-      <p>ID: {widget.id}</p>
-      <p>Type: {widget.type}</p>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );

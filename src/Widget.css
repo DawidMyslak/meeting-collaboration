@@ -1,3 +1,6 @@
 .Widget {
-  background-color: #ddd;
+  background-color: #fff;
+  overflow: auto;
+  padding: 20px;
+  border-radius: 20px;
 }

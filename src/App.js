@@ -188,21 +188,21 @@ class App extends Component {
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
         case 'HeaderWidget':
-          return <HeaderWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><HeaderWidget key={widget.id} widget={widget} /></div></div>);
         case 'TodoWidget':
-          return <TodoWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><TodoWidget key={widget.id} widget={widget} /></div></div>);
         case 'NoteWidget':
-          return <NoteWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><NoteWidget key={widget.id} widget={widget} /></div></div>);
         case 'PollWidget':
-          return <PollWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><PollWidget key={widget.id} widget={widget} /></div></div>);
         case 'TaskWidget':
-          return <TaskWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><TaskWidget key={widget.id} widget={widget} /></div></div>);
         case 'ResourceWidget':
-          return <ResourceWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><ResourceWidget key={widget.id} widget={widget} /></div></div>);
         case 'ImageWidget':
-          return <ImageWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><ImageWidget key={widget.id} widget={widget} /></div></div>);
         case 'WhiteboardWidget':
-          return <WhiteboardWidget key={widget.id} widget={widget} />;
+          return (<div><div className="col-20">{widget.id}</div><div className="App-widget col-80"><WhiteboardWidget key={widget.id} widget={widget} /></div></div>);
         default:
           return '';
       }
@@ -238,12 +238,7 @@ class App extends Component {
           </div>
         </div>
         <div className="App-timeline container">
-          <div className="col-20">
-          x
-          </div>
-          <div className="col-80">
-            {timeline}
-          </div>
+          {timeline}
         </div>
       </div>
     );

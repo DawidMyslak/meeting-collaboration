@@ -29,8 +29,6 @@ const PollWidget = ({widget}) => {
 
   return (
     <div className="Widget">
-      <p>ID: {widget.id}</p>
-      <p>Type: {widget.type}</p>
       <p>{widget.data.question}</p>
       <ul>
         {answers}
