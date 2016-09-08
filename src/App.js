@@ -2,22 +2,34 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const TodoWidget = (props) => {
+const TodoWidget = ({widget}) => {
+  let todos = widget.data.todos.map(todo => {
+    return <li
+      key={todo.id}
+      style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+      >
+      {todo.text}
+    </li>
+  });
+
   return (
-    <div>
-      <p>{props.widget.id}</p>
-      <p>{props.widget.type}</p>
-      <p>{props.widget.title}</p>
+    <div className="Widget">
+      <h1>{widget.title}</h1>
+      <p>ID: {widget.id}</p>
+      <p>Type: {widget.type}</p>
+      <ul>
+        {todos}
+      </ul>
     </div>
   );
 };
 
-const NoteWidget = (props) => {
+const NoteWidget = ({widget}) => {
   return (
-    <div>
-      <p>{props.widget.id}</p>
-      <p>{props.widget.type}</p>
-      <p>{props.widget.title}</p>
+    <div className="Widget">
+      <h1>{widget.title}</h1>
+      <p>ID: {widget.id}</p>
+      <p>Type: {widget.type}</p>
     </div>
   );
 };
@@ -29,9 +41,21 @@ class App extends Component {
       timeline: [
         {
           id: 1,
-          title: 'Title1',
+          title: 'Agenda',
           type: 'TodoWidget',
           data: {
+            todos: [
+              {
+                id: 1,
+                text: 'Sprint retro',
+                completed: true
+              },
+              {
+                id: 2,
+                text: 'Sprint retro',
+                completed: false
+              }
+            ]
           }
         },
         {
@@ -63,9 +87,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React!</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <div>
           {timeline}
         </div>
