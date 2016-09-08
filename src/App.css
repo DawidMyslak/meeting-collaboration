@@ -66,21 +66,22 @@
   display: inline-block;
 }
 
-.App-widgets li a {
+.App-widgets li i {
   display: block;
   margin-right: 5px;
   font-size: 1.2em;
   color: #fff;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 12px;
   width: 40px;
   height: 40px;
   border-radius: 20px;
   text-decoration: none;
 }
 
-.App-widgets li a:hover {
+.App-widgets li i:hover {
   background-color: #242e3a;
+  cursor: pointer;
 }
 
 .App-users {

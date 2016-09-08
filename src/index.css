@@ -11,6 +11,26 @@ body {
   background-color: #f9f9f9;
 }
 
+a:link {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4183c4;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #4183c4;
+  text-decoration: none;
+}
+
 .container {
   width: 100%;
 }

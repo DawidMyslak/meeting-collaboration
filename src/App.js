@@ -12,6 +12,8 @@ import EmptyWidget from './widgets/EmptyWidget'
 
 import './App.css';
 
+const onTest = (param) => console.log(param);
+
 class App extends Component {
   constructor() {
     super();
@@ -50,7 +52,7 @@ class App extends Component {
           id: -1,
           type: 'HeaderWidget',
           data: {
-            title: 'Heey'
+            title: 'Agenda'
           }
         },
         {
@@ -300,14 +302,14 @@ class App extends Component {
         <div className="App-utils container">
           <div className="App-widgets col-50">
             <ul>
-              <li><a href="#"><i className="fa fa-header"></i></a></li>
-              <li><a href="#"><i className="fa fa-check"></i></a></li>
-              <li><a href="#"><i className="fa fa-comment"></i></a></li>
-              <li><a href="#"><i className="fa fa-question"></i></a></li>
-              <li><a href="#"><i className="fa fa-clock-o"></i></a></li>
-              <li><a href="#"><i className="fa fa-link"></i></a></li>
-              <li><a href="#"><i className="fa fa-picture-o"></i></a></li>
-              <li><a href="#"><i className="fa fa-pencil"></i></a></li>
+              <li><i className="fa fa-header" onClick={() => onTest(1) }></i></li>
+              <li><i className="fa fa-check"></i></li>
+              <li><i className="fa fa-comment"></i></li>
+              <li><i className="fa fa-question"></i></li>
+              <li><i className="fa fa-clock-o"></i></li>
+              <li><i className="fa fa-link"></i></li>
+              <li><i className="fa fa-picture-o"></i></li>
+              <li><i className="fa fa-pencil"></i></li>
             </ul>
           </div>
           <div className="App-users col-50">

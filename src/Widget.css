@@ -2,7 +2,8 @@
   background-color: #fff;
   overflow: auto;
   padding: 10px 20px;
-  border-radius: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
 }
 
 .HeaderWidget {
