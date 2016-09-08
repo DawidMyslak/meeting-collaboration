@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import HeaderWidget from './widgets/HeaderWidget'
 import TodoWidget from './widgets/TodoWidget'
 import NoteWidget from './widgets/NoteWidget'
 import PollWidget from './widgets/PollWidget'
@@ -129,6 +130,11 @@ class App extends Component {
           data: {
             source: 'https://www.teamwork.com/images/favicon-large.png'
           }
+        },
+        {
+          id: 8,
+          title: 'Awesomeee header',
+          type: 'HeaderWidget'
         }
       ]
     };
@@ -137,6 +143,8 @@ class App extends Component {
   render() {
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
+        case 'HeaderWidget':
+          return <HeaderWidget key={widget.id} widget={widget} />;
         case 'TodoWidget':
           return <TodoWidget key={widget.id} widget={widget} />;
         case 'NoteWidget':
