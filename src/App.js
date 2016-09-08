@@ -312,6 +312,14 @@ class App extends Component {
             </div>
           </div>
           {timeline}
+          <div>
+            <div className="col-10">
+              <div className="App-widget-end"></div>
+            </div>
+            <div className="App-widget col-90">
+              <EmptyWidget />
+            </div>
+          </div>
         </div>
       </div>
     );
