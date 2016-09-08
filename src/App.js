@@ -39,7 +39,10 @@ class App extends Component {
           title: 'Opinion',
           type: 'NoteWidget',
           data: {
-            text: '~~markdown~~ _is_ **awesome**'
+            text: '~~markdown~~ _is_ **awesome**\n' +
+            '* one\n' +
+            '* two\n' +
+            '* three\n'
           }
         }
       ]
