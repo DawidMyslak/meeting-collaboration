@@ -44,18 +44,19 @@ class App extends Component {
       ]
     };
   }
-  
+
   render() {
     let timeline = this.state.timeline.map(widget => {
-      let result;
-      if (widget.type === 'TestWidget1') {
-        result = <TestWidget1 key={widget.id} widget={widget} />
+      switch (widget.type) {
+        case 'TestWidget1':
+          return <TestWidget1 key={widget.id} widget={widget} />;
+        case 'TestWidget2':
+          return <TestWidget2 key={widget.id} widget={widget} />;
+        default:
+          return '';
       }
-      else if (widget.type === 'TestWidget2') {
-        result = <TestWidget2 key={widget.id} widget={widget} />
-      }
-      return result;
     });
+
     return (
       <div className="App">
         <div className="App-header">
