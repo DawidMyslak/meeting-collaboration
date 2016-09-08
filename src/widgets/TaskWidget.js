@@ -1,18 +1,18 @@
 import React from 'react';
 
 const TaskWidget = ({widget}) => {
-  let options = [0, 0.5, 1, 2, 3, 5, 8, 20, 40, 100];
-  options = options.map((option, i) => {
+  let options = [0, 1, 2, 3, 5, 8, 20, 40];
+  options = options.map(option => {
     if (!widget.data.results) {
       return (<li
-        key={i}
+        key={option}
         // onClick={onClick}
         >
         {option} [click]
       </li>);
     }
     else {
-      return (<li key={i}>
+      return (<li key={option}>
         {option}
       </li>);
     }
