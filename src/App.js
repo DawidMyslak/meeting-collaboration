@@ -5,6 +5,7 @@ import NoteWidget from './widgets/NoteWidget'
 import PollWidget from './widgets/PollWidget'
 import TaskWidget from './widgets/TaskWidget'
 import ResourceWidget from './widgets/ResourceWidget'
+import ImageWidget from './widgets/ImageWidget'
 
 import logo from './logo.svg';
 import './App.css';
@@ -118,7 +119,15 @@ class App extends Component {
           type: 'ResourceWidget',
           data: {
             name: 'Check this great website!',
-            link: 'https://www.teamwork.com/'
+            link: 'https://www.teamwork.com'
+          }
+        },
+        {
+          id: 7,
+          title: 'Sharing images',
+          type: 'ImageWidget',
+          data: {
+            source: 'https://www.teamwork.com/images/favicon-large.png'
           }
         }
       ]
@@ -138,6 +147,8 @@ class App extends Component {
           return <TaskWidget key={widget.id} widget={widget} />;
         case 'ResourceWidget':
           return <ResourceWidget key={widget.id} widget={widget} />;
+        case 'ImageWidget':
+          return <ImageWidget key={widget.id} widget={widget} />;
         default:
           return '';
       }
