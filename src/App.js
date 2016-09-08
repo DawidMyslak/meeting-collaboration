@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const TestWidget1 = (props) => {
+const TodoWidget = (props) => {
   return (
-    <tr>
-      <td>{props.widget.id}</td>
-      <td>{props.widget.type}</td>
-      <td>{props.widget.title}</td>
-    </tr>
+    <div>
+      <p>{props.widget.id}</p>
+      <p>{props.widget.type}</p>
+      <p>{props.widget.title}</p>
+    </div>
   );
 };
 
-const TestWidget2 = (props) => {
+const NoteWidget = (props) => {
   return (
-    <tr>
-      <td>{props.widget.id}</td>
-      <td>{props.widget.type}</td>
-      <td>{props.widget.title}</td>
-    </tr>
+    <div>
+      <p>{props.widget.id}</p>
+      <p>{props.widget.type}</p>
+      <p>{props.widget.title}</p>
+    </div>
   );
 };
 
@@ -30,14 +30,14 @@ class App extends Component {
         {
           id: 1,
           title: 'Title1',
-          type: 'TestWidget1',
+          type: 'TodoWidget',
           data: {
           }
         },
         {
           id: 2,
           title: 'Title2',
-          type: 'TestWidget2',
+          type: 'NoteWidget',
           data: {
           }
         }
@@ -48,10 +48,10 @@ class App extends Component {
   render() {
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
-        case 'TestWidget1':
-          return <TestWidget1 key={widget.id} widget={widget} />;
-        case 'TestWidget2':
-          return <TestWidget2 key={widget.id} widget={widget} />;
+        case 'TodoWidget':
+          return <TodoWidget key={widget.id} widget={widget} />;
+        case 'NoteWidget':
+          return <NoteWidget key={widget.id} widget={widget} />;
         default:
           return '';
       }
@@ -66,11 +66,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <table>
-          <tbody>
-            {timeline}
-          </tbody>
-        </table>
+        <div>
+          {timeline}
+        </div>
       </div>
     );
   }
