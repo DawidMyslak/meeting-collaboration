@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
+import marked from 'marked';
 import logo from './logo.svg';
 import './App.css';
+
+class MarkdownElement extends Component {
+  constructor(props) {
+    super(props);
+
+    marked.setOptions({
+      gfm: true,
+      tables: true,
+      breaks: false,
+      pedantic: false,
+      sanitize: true,
+      smartLists: true,
+      smartypants: false
+    });
+  }
+  render() {
+    const { text } = this.props,
+      html = marked(text || '');
+
+    return (<div>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </div>);
+  }
+}
 
 const TodoWidget = ({widget}) => {
   let todos = widget.data.todos.map(todo => {
@@ -30,7 +55,7 @@ const NoteWidget = ({widget}) => {
       <h1>{widget.title}</h1>
       <p>ID: {widget.id}</p>
       <p>Type: {widget.type}</p>
-      <p>{widget.data.text}</p>
+      <MarkdownElement text={widget.data.text} />
     </div>
   );
 };
@@ -67,16 +92,15 @@ class App extends Component {
         },
         {
           id: 2,
-          title: 'Title2',
+          title: 'Opinion',
           type: 'NoteWidget',
           data: {
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            text: '~~markdown~~ _is_ **awesome**'
           }
         }
       ]
     };
   }
-
   render() {
     let timeline = this.state.timeline.map(widget => {
       switch (widget.type) {
