@@ -109,6 +109,34 @@ const App = ({store}) => {
     }
   });
 
+  let timelineBegin;
+  if (state.timeline.length > 0) {
+    timelineBegin = (
+      <div className="App-timeline-begin">
+        <div className="col-10">
+          <div className="App-widget-begin"></div>
+        </div>
+        <div className="App-widget col-90">
+          <EmptyWidget />
+        </div>
+      </div>
+    );
+  }
+
+  let timelineEnd;
+  if (state.timeline.length > 0) {
+    timelineEnd = (
+      <div>
+        <div className="col-10">
+          <div className="App-widget-end"></div>
+        </div>
+        <div className="App-widget col-90">
+          <EmptyWidget />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <div className="App-navbar container">
@@ -139,23 +167,9 @@ const App = ({store}) => {
         </div>
       </div>
       <div className="App-timeline container">
-        <div className="App-timeline-begin">
-          <div className="col-10">
-            <div className="App-widget-begin"></div>
-          </div>
-          <div className="App-widget col-90">
-            <EmptyWidget />
-          </div>
-        </div>
+        {timelineBegin}
         {timeline}
-        <div>
-          <div className="col-10">
-            <div className="App-widget-end"></div>
-          </div>
-          <div className="App-widget col-90">
-            <EmptyWidget />
-          </div>
-        </div>
+        {timelineEnd}
       </div>
     </div>
   );
