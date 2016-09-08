@@ -47,6 +47,13 @@ class App extends Component {
       ],
       timeline: [
         {
+          id: -1,
+          type: 'HeaderWidget',
+          data: {
+            title: 'Heey'
+          }
+        },
+        {
           id: 1,
           type: 'TodoWidget',
           data: {
@@ -130,6 +137,13 @@ class App extends Component {
           }
         },
         {
+          id: -2,
+          type: 'HeaderWidget',
+          data: {
+            title: 'Unreaaaal appp!!'
+          }
+        },
+        {
           id: 5,
           type: 'TaskWidget',
           data: {
@@ -191,9 +205,7 @@ class App extends Component {
         case 'HeaderWidget':
           return (
             <div key={widget.id}>
-              <div className="col-10">
-                <div className="App-widget-checkpoint"><i className="fa fa-header"></i></div>
-              </div>
+              <div className="col-10"></div>
               <div className="App-widget col-90">
                 <HeaderWidget widget={widget} />
               </div>

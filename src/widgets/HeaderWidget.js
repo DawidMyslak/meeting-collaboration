@@ -4,7 +4,7 @@ import './../Widget.css';
 
 const HeaderWidget = ({widget}) => {
   return (
-    <div className="Widget">
+    <div className="HeaderWidget">
       <h1>{widget.data.title}</h1>
     </div>
   );
