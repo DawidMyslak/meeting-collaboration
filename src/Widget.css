@@ -90,7 +90,7 @@
 }
 
 .PollWidget li:active.active {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 .PollWidget li.inactive {
@@ -101,4 +101,37 @@
 .ResourceWidget {
   font-size: 1.3em;
   padding: 20px;
+}
+
+.TaskWidget ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.TaskWidget li {
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: 1.6em;
+  display: inline-block;
+  border-radius: 10px;
+  width: 50px;
+  height: 65px;
+  border: 1px solid #bbb;
+  margin-right: 10px;
+}
+
+.TaskWidget li:hover.active  {
+  cursor: pointer;
+}
+
+.TaskWidget li:active.active {
+  background-color: #bbb;
+  color: #fff;
+}
+
+.TaskWidget li.inactive {
+  border-color: #eee;
+  color: #eee;
 }

@@ -10,6 +10,7 @@ const TaskWidget = ({store, widget}) => {
   options = options.map(option => {
     if (!widget.data.results) {
       return (<li
+        className="active"
         key={option}
         onClick={() => store.dispatch(voteTask(widget.id, option)) }
         >
@@ -17,7 +18,7 @@ const TaskWidget = ({store, widget}) => {
       </li>);
     }
     else {
-      return (<li key={option}>
+      return (<li className="inactive" key={option}>
         {option}
       </li>);
     }
@@ -45,7 +46,7 @@ const TaskWidget = ({store, widget}) => {
   }
 
   return (
-    <div className="Widget">
+    <div className="Widget TaskWidget">
       <p><strong>{widget.data.task}</strong></p>
       <ul>
         {options}

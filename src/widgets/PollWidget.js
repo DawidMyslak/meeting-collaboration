@@ -8,7 +8,8 @@ import './../Widget.css';
 const PollWidget = ({store, widget}) => {
   let answers = widget.data.answers.map(answer => {
     if (!widget.data.results) {
-      return (<li className="active"
+      return (<li
+        className="active"
         key={answer.id}
         onClick={() => store.dispatch(votePoll(widget.id, answer.id)) }
         >
