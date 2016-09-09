@@ -4,7 +4,7 @@ import './../Widget.css';
 
 const ResourceWidget = ({widget}) => {
   return (
-    <div className="Widget">
+    <div className="Widget ResourceWidget">
       <a href={widget.data.link} rel="noopener noreferrer" target="_blank">{widget.data.description}</a>
     </div>
   );

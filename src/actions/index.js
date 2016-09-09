@@ -67,6 +67,11 @@ export const addPollWidget = (data) => {
         id: 3,
         answer: 'Oracle',
         votes: 0
+      },
+      {
+        id: 4,
+        answer: 'NoSQL',
+        votes: 0
       }
     ]
   });
