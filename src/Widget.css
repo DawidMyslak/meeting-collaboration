@@ -51,9 +51,18 @@
 }
 
 .TodoWidget li {
-  padding: 5px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.TodoWidget li:last-child {
+  border-bottom: none;
 }
 
 .TodoWidget li:hover {
   cursor: pointer;
+}
+
+.TodoWidget i {
+  margin-right: 12px;
 }

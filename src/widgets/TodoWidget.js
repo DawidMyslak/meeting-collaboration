@@ -19,7 +19,7 @@ const TodoWidget = ({store, widget}) => {
       style={{ color: todo.completed ? '#999' : 'inherit' }}
       onClick={() => store.dispatch(toggleTodo(widget.id, todo.id)) }
       >
-      {icon} {todo.todo}
+      {icon}{todo.todo}
     </li>);
   });
 
