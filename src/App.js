@@ -28,8 +28,8 @@ const App = ({store, socket}) => {
   const createImageWidget = () => { socket.emit('ADD_WIDGET', addImageWidget()); };
   const createWhiteboardWidget = () => { socket.emit('ADD_WIDGET', addWhiteboardWidget()); };
 
-  let users = state.users.map(user => {
-    let style = ('App-users-user color-').concat(user.id);
+  let users = state.users.map((user, i) => {
+    let style = ('App-users-user color-').concat(i + 1);
     return <div key={user.id} className={style}><i className="fa fa-user"></i></div>;
   });
 

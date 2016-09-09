@@ -25,6 +25,10 @@ socket.on('UPDATE_WIDGET', function (action) {
   store.dispatch(action);
 });
 
+socket.on('REFRESH_USERS', function (action) {
+  store.dispatch(action);
+});
+
 const render = () => {
   ReactDOM.render(
     <App store={store} socket={socket} />,

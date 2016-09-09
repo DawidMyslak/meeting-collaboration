@@ -1,14 +1,7 @@
-const users = (state = [
-  {
-    id: 1,
-    name: 'John'
-  },
-  {
-    id: 2,
-    name: 'Paul'
-  }
-], action) => {
+const users = (state = [], action) => {
   switch (action.type) {
+    case 'REFRESH_USERS':
+      return action.users;
     default:
       return state;
   }
