@@ -30,3 +30,12 @@
     #f5f3dc 28px
   );
 }
+
+.ImageWidget {
+  min-height: 300px;
+  background-size: cover;
+}
+
+.ImageWidget:hover {
+  cursor: pointer;
+}

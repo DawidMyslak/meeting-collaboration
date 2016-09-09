@@ -89,7 +89,7 @@ export const addResourceWidget = (data) => {
 
 export const addImageWidget = (data) => {
   return addWidget('ImageWidget', {
-    image: 'https://www.teamwork.com/images/favicon-large.png'
+    image: 'https://blog.teamwork.com/wp-content/uploads/2016/08/9-Ways-Your-Remote-Team-Can-be-More-Productive.jpg'
   });
 };
 
