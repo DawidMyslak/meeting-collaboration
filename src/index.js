@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { animateScroll } from 'react-scroll';
 import { createStore } from 'redux';
 import App from './App';
 import reducer from './reducers';
@@ -15,7 +14,6 @@ const render = () => {
     <App store={store} />,
     document.getElementById('root')
   );
-  animateScroll.scrollToBottom();
 };
 
 store.subscribe(render);

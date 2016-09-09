@@ -1,4 +1,5 @@
 import React from 'react';
+import { animateScroll } from 'react-scroll';
 
 import HeaderWidget from './widgets/HeaderWidget';
 import TodoWidget from './widgets/TodoWidget';
@@ -18,6 +19,15 @@ import './App.css';
 
 const App = ({store}) => {
   let state = store.getState();
+
+  const createHeaderWidget = () => { store.dispatch(addHeaderWidget()); animateScroll.scrollToBottom(); };
+  const createTodoWidget = () => { store.dispatch(addTodoWidget()); animateScroll.scrollToBottom(); };
+  const createNoteWidget = () => { store.dispatch(addNoteWidget()); animateScroll.scrollToBottom(); };
+  const createPollWidget = () => { store.dispatch(addPollWidget()); animateScroll.scrollToBottom(); };
+  const createTaskWidget = () => { store.dispatch(addTaskWidget()); animateScroll.scrollToBottom(); };
+  const createResourceWidget = () => { store.dispatch(addResourceWidget()); animateScroll.scrollToBottom(); };
+  const createImageWidget = () => { store.dispatch(addImageWidget()); animateScroll.scrollToBottom(); };
+  const createWhiteboardWidget = () => { store.dispatch(addWhiteboardWidget()); animateScroll.scrollToBottom(); };
 
   let users = state.users.map(user => {
     let style = ('App-users-user color-').concat(user.id);
@@ -41,7 +51,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-check"></i></div>
             </div>
             <div className="App-widget col-90">
-              <TodoWidget widget={widget} />
+              <TodoWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'NoteWidget':
@@ -152,14 +162,14 @@ const App = ({store}) => {
       <div className="App-utils container">
         <div className="App-widgets col-50">
           <ul>
-            <li><i className="fa fa-header" onClick={() => store.dispatch(addHeaderWidget()) }></i></li>
-            <li><i className="fa fa-check" onClick={() => store.dispatch(addTodoWidget()) }></i></li>
-            <li><i className="fa fa-comment" onClick={() => store.dispatch(addNoteWidget()) }></i></li>
-            <li><i className="fa fa-question" onClick={() => store.dispatch(addPollWidget()) }></i></li>
-            <li><i className="fa fa-clock-o" onClick={() => store.dispatch(addTaskWidget()) }></i></li>
-            <li><i className="fa fa-link" onClick={() => store.dispatch(addResourceWidget()) }></i></li>
-            <li><i className="fa fa-picture-o" onClick={() => store.dispatch(addImageWidget()) }></i></li>
-            <li><i className="fa fa-pencil" onClick={() => store.dispatch(addWhiteboardWidget()) }></i></li>
+            <li><i className="fa fa-header" onClick={() => createHeaderWidget() }></i></li>
+            <li><i className="fa fa-check" onClick={() => createTodoWidget() }></i></li>
+            <li><i className="fa fa-comment" onClick={() => createNoteWidget() }></i></li>
+            <li><i className="fa fa-question" onClick={() => createPollWidget() }></i></li>
+            <li><i className="fa fa-clock-o" onClick={() => createTaskWidget() }></i></li>
+            <li><i className="fa fa-link" onClick={() => createResourceWidget() }></i></li>
+            <li><i className="fa fa-picture-o" onClick={() => createImageWidget() }></i></li>
+            <li><i className="fa fa-pencil" onClick={() => createWhiteboardWidget() }></i></li>
           </ul>
         </div>
         <div className="App-users col-50">

@@ -1,4 +1,4 @@
-let nextWidgetId = 0
+let nextWidgetId = 1;
 
 const addWidget = (widget, data) => {
   return {
@@ -7,7 +7,7 @@ const addWidget = (widget, data) => {
     widget,
     data
   }
-}
+};
 
 export const addHeaderWidget = (data) => {
   return addWidget('HeaderWidget', {
@@ -21,7 +21,7 @@ export const addTodoWidget = (data) => {
       {
         id: 1,
         todo: 'Sprint retrospective',
-        completed: true
+        completed: false
       },
       {
         id: 2,
@@ -37,9 +37,17 @@ export const addTodoWidget = (data) => {
   });
 };
 
+export const toggleTodo = (widgetId, todoId) => {
+  return {
+    type: 'TOGGLE_TODO',
+    widgetId,
+    todoId
+  }
+};
+
 export const addNoteWidget = (data) => {
   return addWidget('NoteWidget', {
-    note: '**We** ~~havent\'t~~ finished the sprint!\n\n' +
+    note: '**We** ~~havent\'t~~ finished the _sprint_!\n\n' +
     'What went good:\n' +
     '* we did this\n' +
     '* we did that\n' +
