@@ -27,7 +27,7 @@ const TaskWidget = ({store, widget}) => {
   let results;
   if (!widget.data.results) {
     results = (<div>
-      <p>Votes: {widget.data.estimates.length}</p>
+      <p><u>Votes: {widget.data.estimates.length}</u></p>
       <p><button onClick={() => store.dispatch(toggleTask(widget.id)) }>Show results</button></p>
     </div>);
   }
@@ -40,7 +40,7 @@ const TaskWidget = ({store, widget}) => {
     }
 
     results = (<div>
-      <p>Estimates: {estimates}</p>
+      <p><u>Estimates: {estimates}</u></p>
       <p><button onClick={() => store.dispatch(toggleTask(widget.id)) }>Hide results</button></p>
     </div>);
   }
