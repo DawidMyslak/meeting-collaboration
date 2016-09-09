@@ -84,7 +84,6 @@ export const addTaskWidget = (data) => {
 
 export const addResourceWidget = (data) => {
   return addWidget('ResourceWidget', {
-    description: 'Check this great website!',
     link: 'https://www.teamwork.com'
   });
 };
