@@ -1,19 +1,22 @@
 import React from 'react';
 
+import { togglePoll } from './../actions';
+import { votePoll } from './../actions';
+
 import './../Widget.css';
 
-const PollWidget = ({widget}) => {
+const PollWidget = ({store, widget}) => {
   let answers = widget.data.answers.map(answer => {
     if (!widget.data.results) {
-      return (<li
+      return (<li className="active"
         key={answer.id}
-        // onClick={onClick}
+        onClick={() => store.dispatch(votePoll(widget.id, answer.id)) }
         >
-        {answer.answer} [click]
+        {answer.answer}
       </li>);
     }
     else {
-      return (<li key={answer.id}>
+      return (<li className="inactive" key={answer.id}>
         {answer.answer} ({answer.votes})
       </li>);
     }
@@ -21,15 +24,15 @@ const PollWidget = ({widget}) => {
 
   let results;
   if (!widget.data.results) {
-    results = <p><button>Show results</button></p>;
+    results = <p><button onClick={() => store.dispatch(togglePoll(widget.id)) }>Show results</button></p>;
   }
   else {
-    results = <p><button>Hide results</button></p>;
+    results = <p><button onClick={() => store.dispatch(togglePoll(widget.id)) }>Hide results</button></p>;
   }
 
   return (
-    <div className="Widget">
-      <p>{widget.data.question}</p>
+    <div className="Widget PollWidget">
+      <p><strong>{widget.data.question}</strong></p>
       <ul>
         {answers}
       </ul>

@@ -41,7 +41,7 @@ const App = ({store}) => {
           <div key={widget.id}>
             <div className="col-10"></div>
             <div className="App-widget col-90">
-              <HeaderWidget widget={widget} />
+              <HeaderWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'TodoWidget':
@@ -61,7 +61,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-comment"></i></div>
             </div>
             <div className="App-widget col-90">
-              <NoteWidget widget={widget} />
+              <NoteWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'PollWidget':
@@ -71,7 +71,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-question"></i></div>
             </div>
             <div className="App-widget col-90">
-              <PollWidget widget={widget} />
+              <PollWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'TaskWidget':
@@ -81,7 +81,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-clock-o"></i></div>
             </div>
             <div className="App-widget col-90">
-              <TaskWidget widget={widget} />
+              <TaskWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'ResourceWidget':
@@ -91,7 +91,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-link"></i></div>
             </div>
             <div className="App-widget col-90">
-              <ResourceWidget widget={widget} />
+              <ResourceWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'ImageWidget':
@@ -101,7 +101,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-picture-o"></i></div>
             </div>
             <div className="App-widget col-90">
-              <ImageWidget widget={widget} />
+              <ImageWidget widget={widget} store={store} />
             </div>
           </div>);
       case 'WhiteboardWidget':
@@ -111,7 +111,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-pencil"></i></div>
             </div>
             <div className="App-widget col-90">
-              <WhiteboardWidget widget={widget} />
+              <WhiteboardWidget widget={widget} store={store} />
             </div>
           </div>);
       default:

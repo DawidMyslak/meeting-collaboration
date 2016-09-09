@@ -19,7 +19,30 @@ const timeline = (state = [], action) => {
           return Object.assign({}, todo, { completed: !todo.completed });
         });
 
-        return Object.assign({}, widget, { data: { todos: todos } });
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { todos: todos })});
+      });
+    case 'TOGGLE_POLL':
+      return state.map(widget => {
+        if (widget.id !== action.widgetId) {
+          return widget;
+        }
+
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { results: !widget.data.results })});
+      });
+    case 'VOTE_POLL':
+      return state.map(widget => {
+        if (widget.id !== action.widgetId) {
+          return widget;
+        }
+
+        let answers = widget.data.answers.map(answer => {
+          if (answer.id !== action.answerId) {
+            return answer;
+          }
+          return Object.assign({}, answer, { votes: ++answer.votes });
+        });
+        
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { answers: answers })});
       });
     default:
       return state;
