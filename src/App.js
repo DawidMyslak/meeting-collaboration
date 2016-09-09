@@ -1,5 +1,4 @@
 import React from 'react';
-import { animateScroll } from 'react-scroll';
 
 import HeaderWidget from './widgets/HeaderWidget';
 import TodoWidget from './widgets/TodoWidget';
@@ -17,17 +16,17 @@ import { addHeaderWidget, addTodoWidget, addNoteWidget,
 
 import './App.css';
 
-const App = ({store}) => {
+const App = ({store, socket}) => {
   let state = store.getState();
 
-  const createHeaderWidget = () => { store.dispatch(addHeaderWidget()); animateScroll.scrollToBottom(); };
-  const createTodoWidget = () => { store.dispatch(addTodoWidget()); animateScroll.scrollToBottom(); };
-  const createNoteWidget = () => { store.dispatch(addNoteWidget()); animateScroll.scrollToBottom(); };
-  const createPollWidget = () => { store.dispatch(addPollWidget()); animateScroll.scrollToBottom(); };
-  const createTaskWidget = () => { store.dispatch(addTaskWidget()); animateScroll.scrollToBottom(); };
-  const createResourceWidget = () => { store.dispatch(addResourceWidget()); animateScroll.scrollToBottom(); };
-  const createImageWidget = () => { store.dispatch(addImageWidget()); animateScroll.scrollToBottom(); };
-  const createWhiteboardWidget = () => { store.dispatch(addWhiteboardWidget()); animateScroll.scrollToBottom(); };
+  const createHeaderWidget = () => { socket.emit('ADD_WIDGET', addHeaderWidget()); };
+  const createTodoWidget = () => { socket.emit('ADD_WIDGET', addTodoWidget()); };
+  const createNoteWidget = () => { socket.emit('ADD_WIDGET', addNoteWidget()); };
+  const createPollWidget = () => { socket.emit('ADD_WIDGET', addPollWidget()); };
+  const createTaskWidget = () => { socket.emit('ADD_WIDGET', addTaskWidget()); };
+  const createResourceWidget = () => { socket.emit('ADD_WIDGET', addResourceWidget()); };
+  const createImageWidget = () => { socket.emit('ADD_WIDGET', addImageWidget()); };
+  const createWhiteboardWidget = () => { socket.emit('ADD_WIDGET', addWhiteboardWidget()); };
 
   let users = state.users.map(user => {
     let style = ('App-users-user color-').concat(user.id);
@@ -41,7 +40,7 @@ const App = ({store}) => {
           <div key={widget.id}>
             <div className="col-10"></div>
             <div className="App-widget col-90">
-              <HeaderWidget widget={widget} store={store} />
+              <HeaderWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'TodoWidget':
@@ -49,9 +48,9 @@ const App = ({store}) => {
           <div key={widget.id}>
             <div className="col-10">
               <div className="App-widget-checkpoint"><i className="fa fa-check"></i></div>
-            </div>
+            </div> 
             <div className="App-widget col-90">
-              <TodoWidget widget={widget} store={store} />
+              <TodoWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'NoteWidget':
@@ -61,7 +60,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-comment"></i></div>
             </div>
             <div className="App-widget col-90">
-              <NoteWidget widget={widget} store={store} />
+              <NoteWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'PollWidget':
@@ -71,7 +70,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-question"></i></div>
             </div>
             <div className="App-widget col-90">
-              <PollWidget widget={widget} store={store} />
+              <PollWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'TaskWidget':
@@ -81,7 +80,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-clock-o"></i></div>
             </div>
             <div className="App-widget col-90">
-              <TaskWidget widget={widget} store={store} />
+              <TaskWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'ResourceWidget':
@@ -91,7 +90,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-link"></i></div>
             </div>
             <div className="App-widget col-90">
-              <ResourceWidget widget={widget} store={store} />
+              <ResourceWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'ImageWidget':
@@ -101,7 +100,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-picture-o"></i></div>
             </div>
             <div className="App-widget col-90">
-              <ImageWidget widget={widget} store={store} />
+              <ImageWidget socket={socket} widget={widget} />
             </div>
           </div>);
       case 'WhiteboardWidget':
@@ -111,7 +110,7 @@ const App = ({store}) => {
               <div className="App-widget-checkpoint"><i className="fa fa-pencil"></i></div>
             </div>
             <div className="App-widget col-90">
-              <WhiteboardWidget widget={widget} store={store} />
+              <WhiteboardWidget socket={socket} widget={widget} />
             </div>
           </div>);
       default:
@@ -160,7 +159,7 @@ const App = ({store}) => {
         </div>
       </div>
       <div className="App-utils container">
-        <div className="App-widgets col-50">
+        <div className="App-widgets col-70">
           <ul>
             <li><i className="fa fa-header" onClick={() => createHeaderWidget() }></i></li>
             <li><i className="fa fa-check" onClick={() => createTodoWidget() }></i></li>
@@ -172,7 +171,7 @@ const App = ({store}) => {
             <li><i className="fa fa-pencil" onClick={() => createWhiteboardWidget() }></i></li>
           </ul>
         </div>
-        <div className="App-users col-50">
+        <div className="App-users col-30">
           {users}
         </div>
       </div>

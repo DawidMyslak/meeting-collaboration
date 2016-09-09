@@ -4,7 +4,7 @@ import { toggleTodo } from './../actions';
 
 import './../Widget.css';
 
-const TodoWidget = ({store, widget}) => {
+const TodoWidget = ({socket, widget}) => {
   let todos = widget.data.todos.map(todo => {
     let icon;
     if (todo.completed) {
@@ -13,11 +13,11 @@ const TodoWidget = ({store, widget}) => {
     else {
       icon = <i className="fa fa-circle-o"></i>;
     }
-    
+
     return (<li
       key={todo.id}
       style={{ color: todo.completed ? '#999' : 'inherit' }}
-      onClick={() => store.dispatch(toggleTodo(widget.id, todo.id)) }
+      onClick={() => socket.emit('UPDATE_WIDGET', toggleTodo(widget.id, todo.id)) }
       >
       {icon}{todo.todo}
     </li>);

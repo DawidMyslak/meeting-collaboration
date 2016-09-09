@@ -5,14 +5,14 @@ import { voteTask } from './../actions';
 
 import './../Widget.css';
 
-const TaskWidget = ({store, widget}) => {
+const TaskWidget = ({socket, widget}) => {
   let options = [0, 1, 2, 3, 5, 8, 20, 40];
   options = options.map(option => {
     if (!widget.data.results) {
       return (<li
         className="active"
         key={option}
-        onClick={() => store.dispatch(voteTask(widget.id, option)) }
+        onClick={() => socket.emit('UPDATE_WIDGET', voteTask(widget.id, option)) }
         >
         {option}
       </li>);
@@ -28,7 +28,7 @@ const TaskWidget = ({store, widget}) => {
   if (!widget.data.results) {
     results = (<div>
       <p><u>Votes: {widget.data.estimates.length}</u></p>
-      <p><button onClick={() => store.dispatch(toggleTask(widget.id)) }>Show results</button></p>
+      <p><button onClick={() => socket.emit('UPDATE_WIDGET', toggleTask(widget.id)) }>Show results</button></p>
     </div>);
   }
   else {
@@ -41,7 +41,7 @@ const TaskWidget = ({store, widget}) => {
 
     results = (<div>
       <p><u>Estimates: {estimates}</u></p>
-      <p><button onClick={() => store.dispatch(toggleTask(widget.id)) }>Hide results</button></p>
+      <p><button onClick={() => socket.emit('UPDATE_WIDGET', toggleTask(widget.id)) }>Hide results</button></p>
     </div>);
   }
 

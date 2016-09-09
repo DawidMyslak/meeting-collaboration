@@ -1,9 +1,6 @@
-let nextWidgetId = 1;
-
 const addWidget = (widget, data) => {
   return {
     type: 'ADD_WIDGET',
-    id: nextWidgetId++,
     widget,
     data
   }

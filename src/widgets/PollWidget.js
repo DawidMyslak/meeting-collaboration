@@ -5,13 +5,13 @@ import { votePoll } from './../actions';
 
 import './../Widget.css';
 
-const PollWidget = ({store, widget}) => {
+const PollWidget = ({socket, widget}) => {
   let answers = widget.data.answers.map(answer => {
     if (!widget.data.results) {
       return (<li
         className="active"
         key={answer.id}
-        onClick={() => store.dispatch(votePoll(widget.id, answer.id)) }
+        onClick={() => socket.emit('UPDATE_WIDGET', votePoll(widget.id, answer.id)) }
         >
         {answer.answer}
       </li>);
@@ -25,10 +25,10 @@ const PollWidget = ({store, widget}) => {
 
   let results;
   if (!widget.data.results) {
-    results = <p><button onClick={() => store.dispatch(togglePoll(widget.id)) }>Show results</button></p>;
+    results = <p><button onClick={() => socket.emit('UPDATE_WIDGET', togglePoll(widget.id)) }>Show results</button></p>;
   }
   else {
-    results = <p><button onClick={() => store.dispatch(togglePoll(widget.id)) }>Hide results</button></p>;
+    results = <p><button onClick={() => socket.emit('UPDATE_WIDGET', togglePoll(widget.id)) }>Hide results</button></p>;
   }
 
   return (
