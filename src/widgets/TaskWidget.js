@@ -6,7 +6,7 @@ import { voteTask } from './../actions';
 import './../Widget.css';
 
 const TaskWidget = ({socket, widget}) => {
-  let options = [0, 1, 2, 3, 5, 8, 20, 40];
+  let options = [0, 1, 2, 3, 5, 8, 20];
   options = options.map(option => {
     if (!widget.data.results) {
       return (<li
