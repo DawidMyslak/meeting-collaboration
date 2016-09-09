@@ -1,16 +1,19 @@
 import React from 'react';
 
+import { toggleTask } from './../actions';
+import { voteTask } from './../actions';
+
 import './../Widget.css';
 
-const TaskWidget = ({widget}) => {
+const TaskWidget = ({store, widget}) => {
   let options = [0, 1, 2, 3, 5, 8, 20, 40];
   options = options.map(option => {
     if (!widget.data.results) {
       return (<li
         key={option}
-        // onClick={onClick}
+        onClick={() => store.dispatch(voteTask(widget.id, option)) }
         >
-        {option} [click]
+        {option}
       </li>);
     }
     else {
@@ -24,23 +27,26 @@ const TaskWidget = ({widget}) => {
   if (!widget.data.results) {
     results = (<div>
       <p>Votes: {widget.data.estimates.length}</p>
-      <p><button>Show results</button></p>
+      <p><button onClick={() => store.dispatch(toggleTask(widget.id)) }>Show results</button></p>
     </div>);
   }
   else {
-    let estimates = Math.floor(widget.data.estimates.reduce((sum, n) => {
+    let estimates = widget.data.estimates.reduce((sum, n) => {
       return sum + n;
-    }, 0) / widget.data.estimates.length);
+    }, 0);
+    if (estimates !== 0) {
+      estimates = Math.floor(estimates / widget.data.estimates.length);
+    }
 
     results = (<div>
       <p>Estimates: {estimates}</p>
-      <p><button>Hide results</button></p>
+      <p><button onClick={() => store.dispatch(toggleTask(widget.id)) }>Hide results</button></p>
     </div>);
   }
 
   return (
     <div className="Widget">
-      <p>{widget.data.task}</p>
+      <p><strong>{widget.data.task}</strong></p>
       <ul>
         {options}
       </ul>

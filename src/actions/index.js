@@ -79,9 +79,9 @@ export const addPollWidget = (data) => {
 
 export const addTaskWidget = (data) => {
   return addWidget('TaskWidget', {
-    task: 'Creating meeting minutes taker app',
+    task: 'Create meeting minutes taker app',
     results: false,
-    estimates: [3, 5, 8]
+    estimates: []
   });
 };
 
@@ -124,5 +124,20 @@ export const votePoll = (widgetId, answerId) => {
     type: 'VOTE_POLL',
     widgetId,
     answerId
+  }
+};
+
+export const toggleTask = (widgetId) => {
+  return {
+    type: 'TOGGLE_TASK',
+    widgetId
+  }
+};
+
+export const voteTask = (widgetId, value) => {
+  return {
+    type: 'VOTE_TASK',
+    widgetId,
+    value
   }
 };

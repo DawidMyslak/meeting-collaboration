@@ -19,7 +19,7 @@ const timeline = (state = [], action) => {
           return Object.assign({}, todo, { completed: !todo.completed });
         });
 
-        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { todos: todos })});
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { todos: todos }) });
       });
     case 'TOGGLE_POLL':
       return state.map(widget => {
@@ -27,7 +27,7 @@ const timeline = (state = [], action) => {
           return widget;
         }
 
-        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { results: !widget.data.results })});
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { results: !widget.data.results }) });
       });
     case 'VOTE_POLL':
       return state.map(widget => {
@@ -41,8 +41,24 @@ const timeline = (state = [], action) => {
           }
           return Object.assign({}, answer, { votes: ++answer.votes });
         });
-        
-        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { answers: answers })});
+
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { answers: answers }) });
+      });
+    case 'TOGGLE_TASK':
+      return state.map(widget => {
+        if (widget.id !== action.widgetId) {
+          return widget;
+        }
+
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { results: !widget.data.results }) });
+      });
+    case 'VOTE_TASK':
+      return state.map(widget => {
+        if (widget.id !== action.widgetId) {
+          return widget;
+        }
+
+        return Object.assign({}, widget, { data: Object.assign({}, widget.data, { estimates: widget.data.estimates.concat(action.value) }) });
       });
     default:
       return state;
