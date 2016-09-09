@@ -33,7 +33,7 @@ const PollWidget = ({socket, widget}) => {
 
   return (
     <div className="Widget PollWidget">
-      <p><strong>{widget.data.question}</strong></p>
+      <p><strong>Select one option:</strong></p>
       <ul>
         {answers}
       </ul>

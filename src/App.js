@@ -19,14 +19,57 @@ import './App.css';
 const App = ({store, socket}) => {
   let state = store.getState();
 
-  const createHeaderWidget = () => { socket.emit('ADD_WIDGET', addHeaderWidget()); };
-  const createTodoWidget = () => { socket.emit('ADD_WIDGET', addTodoWidget()); };
-  const createNoteWidget = () => { socket.emit('ADD_WIDGET', addNoteWidget()); };
-  const createPollWidget = () => { socket.emit('ADD_WIDGET', addPollWidget()); };
-  const createTaskWidget = () => { socket.emit('ADD_WIDGET', addTaskWidget()); };
-  const createResourceWidget = () => { socket.emit('ADD_WIDGET', addResourceWidget()); };
-  const createImageWidget = () => { socket.emit('ADD_WIDGET', addImageWidget()); };
-  const createWhiteboardWidget = () => { socket.emit('ADD_WIDGET', addWhiteboardWidget()); };
+  const getCommand = () => {
+    return ('').concat(document.getElementById('command').value);
+  };
+
+  const clearCommand = () => {
+    document.getElementById('command').value = '';
+  };
+
+  const createHeaderWidget = () => {
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addHeaderWidget(getCommand()));
+      clearCommand();
+    }
+  };
+  const createTodoWidget = () => {
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addTodoWidget(getCommand()));
+      clearCommand();
+    }
+  };
+  const createNoteWidget = () => {
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addNoteWidget(getCommand()));
+      clearCommand();
+    }
+  };
+  const createPollWidget = () => {
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addPollWidget(getCommand()));
+      clearCommand();
+    }
+  };
+  const createTaskWidget = () => {
+    socket.emit('ADD_WIDGET', addTaskWidget());
+  };
+  const createResourceWidget = () => {
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addResourceWidget(getCommand()));
+      clearCommand();
+    }
+  };
+  const createImageWidget = () => {
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addImageWidget(getCommand()));
+      clearCommand();
+    }
+  };
+  const createWhiteboardWidget = () => {
+    socket.emit('ADD_WIDGET', addWhiteboardWidget());
+    clearCommand();
+  };
 
   let users = state.users.map((user, i) => {
     let style = ('App-users-user color-').concat(i + 1);
@@ -48,7 +91,7 @@ const App = ({store, socket}) => {
           <div key={widget.id}>
             <div className="col-10">
               <div className="App-widget-checkpoint"><i className="fa fa-check"></i></div>
-            </div> 
+            </div>
             <div className="App-widget col-90">
               <TodoWidget socket={socket} widget={widget} />
             </div>
@@ -173,6 +216,11 @@ const App = ({store, socket}) => {
         </div>
         <div className="App-users col-30">
           {users}
+        </div>
+      </div>
+      <div className="App-command container">
+        <div className="App-command-wrapper">
+          <input id="command" type="text" placeholder="Command" />
         </div>
       </div>
       <div className="App-timeline container">
