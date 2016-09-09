@@ -20,12 +20,12 @@ export const addTodoWidget = (data) => {
     todos: [
       {
         id: 1,
-        todo: 'Sprint retro',
+        todo: 'Sprint retrospective',
         completed: true
       },
       {
         id: 2,
-        todo: 'Brainstorm',
+        todo: 'Brainstorming',
         completed: false
       },
       {
@@ -39,31 +39,33 @@ export const addTodoWidget = (data) => {
 
 export const addNoteWidget = (data) => {
   return addWidget('NoteWidget', {
-    note: '~~markdown~~ _is_ **awesome**\n' +
-    '* one\n' +
-    '* two\n' +
-    '* three\n'
+    note: '**We** ~~havent\'t~~ finished the sprint!\n\n' +
+    'What went good:\n' +
+    '* we did this\n' +
+    '* we did that\n' +
+    '* and more\n' +
+    '* much more!\n'
   });
 };
 
 export const addPollWidget = (data) => {
   return addWidget('PollWidget', {
-    question: 'Best player in the world?',
+    question: 'Which database should we use?',
     results: false,
     answers: [
       {
         id: 1,
-        answer: 'Leo',
+        answer: 'PostgreSQL',
         votes: 2
       },
       {
         id: 2,
-        answer: 'Cris',
+        answer: 'MariaDB',
         votes: 4
       },
       {
         id: 3,
-        answer: 'Robert',
+        answer: 'Oracle',
         votes: 1
       }
     ]
@@ -72,7 +74,7 @@ export const addPollWidget = (data) => {
 
 export const addTaskWidget = (data) => {
   return addWidget('TaskWidget', {
-    task: 'Bulding meeting minutes taker app',
+    task: 'Creating meeting minutes taker app',
     results: false,
     estimates: [3, 5, 8]
   });

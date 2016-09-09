@@ -7,7 +7,7 @@ const NoteWidget = ({widget}) => {
   let html = marked(widget.data.note || '');
 
   return (
-    <div className="Widget">
+    <div className="Widget NoteWidget">
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );

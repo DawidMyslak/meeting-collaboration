@@ -19,3 +19,14 @@
   overflow: auto;
   height: 10px;
 }
+
+.NoteWidget {
+  background-color: #f5f3dc;
+  background: repeating-linear-gradient(
+    to top,
+    #ecebd1,
+    #ecebd1 1px,
+    #f5f3dc 1px,
+    #f5f3dc 24px
+  );
+}
