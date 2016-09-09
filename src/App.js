@@ -52,7 +52,10 @@ const App = ({store, socket}) => {
     }
   };
   const createTaskWidget = () => {
-    socket.emit('ADD_WIDGET', addTaskWidget());
+    if (getCommand()) {
+      socket.emit('ADD_WIDGET', addTaskWidget(getCommand()));
+      clearCommand();
+    }
   };
   const createResourceWidget = () => {
     if (getCommand()) {

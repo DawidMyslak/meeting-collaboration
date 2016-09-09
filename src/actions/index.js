@@ -51,7 +51,7 @@ export const addPollWidget = (command) => {
 
 export const addTaskWidget = (command) => {
   return addWidget('TaskWidget', {
-    task: 'Create meeting minutes taker app...',
+    task: command,
     results: false,
     estimates: []
   });
