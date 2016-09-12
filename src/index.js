@@ -12,9 +12,6 @@ import 'font-awesome/css/font-awesome.css';
 const store = createStore(reducer);
 
 let socket = io('http://localhost:3001');
-socket.on('news', function (data) {
-  socket.emit('my other event', { my: 'data' });
-});
 
 socket.on('ADD_WIDGET', function (action) {
   store.dispatch(action);
